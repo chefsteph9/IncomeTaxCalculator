@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="IncomeTaxCalculator.MAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:IncomeTaxCalculator.MAUI"
+    xmlns:pages="clr-namespace:IncomeTaxCalculator.MAUI.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Income Tax Calculator">
+    <TabBar>
+        <ShellContent
+            Title="Calculate Taxes"
+            ContentTemplate="{DataTemplate pages:IncomeTaxCalculatorPage}" />
+        <ShellContent
+            Title="Edit Tax Bands"
+            ContentTemplate="{DataTemplate pages:EditIncomeTaxBandsPage}" />
+    </TabBar>
+</Shell>

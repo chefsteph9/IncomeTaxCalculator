@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IncomeTaxCalculator.MAUI.Pages.IncomeTaxCalculatorPage"
+             xmlns:viewModel="clr-namespace:IncomeTaxCalculator.MAUI.PageViewModels"
+             x:DataType="viewModel:IncomeTaxCalculatorPageViewModel"
+             Title="Income Tax Calculator">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label
+                Text="Gross Annual Salary: "
+                VerticalOptions="Center"
+                HorizontalOptions="Start" />
+            <Entry
+                Text="{Binding GrossAnnualSalaryInput}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center" />
+            <Button
+                Text="Calc"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                Command="{Binding CalculateTaxesCommand}"/>
+        </HorizontalStackLayout>
+        <Line StrokeThickness="1" />
+        <Label
+            Text="{Binding GrossAnnualSalaryText}" />
+        <Label
+            Text="{Binding GrossMonthlySalaryText}" />
+        <Label
+            Text="{Binding NetAnnualSalaryText}" />
+        <Label
+            Text="{Binding  NetMonthlySalaryText}" />
+        <Label
+            Text="{Binding AnnualTaxesPaidText}" />
+        <Label
+            Text="{Binding MonthlyTaxesPaidText}" />
+    </VerticalStackLayout>
+</ContentPage>
