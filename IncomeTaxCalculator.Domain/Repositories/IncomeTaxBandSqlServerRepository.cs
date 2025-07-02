@@ -1,23 +1,23 @@
-﻿using IncomeTaxCalculator.Api.Models.DbEntities;
-using IncomeTaxCalculator.Api.Models.Domain;
-using IncomeTaxCalculator.Api.Repositories.DbContexts;
-using IncomeTaxCalculator.Api.Repositories.Interfaces;
+﻿using IncomeTaxCalculator.Domain.Models.DbEntities;
+using IncomeTaxCalculator.Domain.Repositories.DbContexts;
+using IncomeTaxCalculator.Domain.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
-namespace IncomeTaxCalculator.Api.Repositories
+namespace IncomeTaxCalculator.Domain.Repositories
 {
-    public class IncomeTaxBandRepositorySqlServer : IIncomeTaxBandRepository
+    public class IncomeTaxBandSqlServerRepository : IIncomeTaxBandRepository
     {
         #region Members
 
-        private ILogger<IncomeTaxBandRepositorySqlServer> _logger;
+        private ILogger<IncomeTaxBandSqlServerRepository> _logger;
         private IncomeTaxBandSqlServerDbContext _dbContext;
 
         #endregion
 
         #region Constructor
 
-        public IncomeTaxBandRepositorySqlServer(ILogger<IncomeTaxBandRepositorySqlServer> logger, IncomeTaxBandSqlServerDbContext dbContext)
+        public IncomeTaxBandSqlServerRepository(ILogger<IncomeTaxBandSqlServerRepository> logger, IncomeTaxBandSqlServerDbContext dbContext)
         {
             _logger = logger;
             _dbContext = dbContext;
@@ -51,4 +51,3 @@ namespace IncomeTaxCalculator.Api.Repositories
         #endregion
     }
 }
-

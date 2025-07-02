@@ -1,8 +1,8 @@
-using IncomeTaxCalculator.Api.Repositories;
-using IncomeTaxCalculator.Api.Repositories.DbContexts;
-using IncomeTaxCalculator.Api.Repositories.Interfaces;
-using IncomeTaxCalculator.Api.Services;
-using IncomeTaxCalculator.Api.Services.Interfaces;
+using IncomeTaxCalculator.Domain.Repositories;
+using IncomeTaxCalculator.Domain.Repositories.DbContexts;
+using IncomeTaxCalculator.Domain.Repositories.Interfaces;
+using IncomeTaxCalculator.Domain.Services;
+using IncomeTaxCalculator.Domain.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 string connectionString = builder.Configuration.GetConnectionString("IncomeTaxBandsDb");
 builder.Services.AddDbContextPool<IncomeTaxBandSqlServerDbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddScoped<IIncomeTaxBandRepository, IncomeTaxBandRepositorySqlServer>();
+builder.Services.AddScoped<IIncomeTaxBandRepository, IncomeTaxBandSqlServerRepository>();
 builder.Services.AddScoped<IIncomeTaxCalculatorService, UnitedKingdomIncomeTaxCalculatorService>();
 
 var app = builder.Build();

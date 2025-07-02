@@ -1,14 +1,10 @@
-﻿using IncomeTaxCalculator.Api.Models.DbEntities;
+﻿using IncomeTaxCalculator.Domain.Models.DbEntities;
 using IncomeTaxCalculator.Models.DTOs;
 
-namespace IncomeTaxCalculator.Api.Models.Domain
+namespace IncomeTaxCalculator.Domain.Models.DomainModels
 {
     public class IncomeTaxBandDomainModel : IComparable<IncomeTaxBandDomainModel>
     {
-        #region Constructors
-
-        #endregion
-
         #region Properties
 
         public long LowerBound { get; set; }

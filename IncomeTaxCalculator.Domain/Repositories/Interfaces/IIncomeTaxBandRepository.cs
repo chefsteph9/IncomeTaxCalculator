@@ -1,6 +1,6 @@
-﻿using IncomeTaxCalculator.Api.Models.DbEntities;
+﻿using IncomeTaxCalculator.Domain.Models.DbEntities;
 
-namespace IncomeTaxCalculator.Api.Repositories.Interfaces
+namespace IncomeTaxCalculator.Domain.Repositories.Interfaces
 {
     public interface IIncomeTaxBandRepository
     {
