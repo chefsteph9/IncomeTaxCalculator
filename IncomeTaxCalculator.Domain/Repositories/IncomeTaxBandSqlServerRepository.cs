@@ -41,6 +41,7 @@ namespace IncomeTaxCalculator.Domain.Repositories
             var createTime = DateTime.Now;
             incomeTaxBands = incomeTaxBands.Select(i => { i.CreateTimestamp = createTime; return i; });
 
+            await deleteTask;
             await _dbContext.AddRangeAsync(incomeTaxBands, ct);
 
             var rowsUpdated = await _dbContext.SaveChangesAsync(ct);
