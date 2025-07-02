@@ -1,5 +1,5 @@
-﻿using IncomeTaxCalculator.Api.Models.Domain;
-using IncomeTaxCalculator.Api.Services.Interfaces;
+﻿using IncomeTaxCalculator.Domain.Models.DomainModels;
+using IncomeTaxCalculator.Domain.Services.Interfaces;
 using IncomeTaxCalculator.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 

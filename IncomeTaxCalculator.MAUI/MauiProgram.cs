@@ -17,6 +17,7 @@ public static class MauiProgram
 		var assembly = Assembly.GetExecutingAssembly();
 		string appsettingsPath = $"appsettings.json";
 		builder.Configuration.AddJsonFile(appsettingsPath);
+		builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly());
 
 
 		builder
@@ -28,7 +29,7 @@ public static class MauiProgram
 			});
 
 
-		builder.Services.AddSingleton<IGetIncomeTaxService, GetIncomeTaxServiceMock>();
+		builder.Services.AddSingleton<IGetIncomeTaxService, GetIncomeTaxService>();
 		builder.Services.AddSingleton<IIncomeTaxCalculatorApiService, IncomeTaxCalculatorApiService>();
 		
 		builder.Services.AddSingleton<IncomeTaxCalculatorPageViewModel>();

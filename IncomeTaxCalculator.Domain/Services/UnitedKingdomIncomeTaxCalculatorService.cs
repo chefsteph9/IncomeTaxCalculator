@@ -1,9 +1,10 @@
-﻿using IncomeTaxCalculator.Api.Models.DbEntities;
-using IncomeTaxCalculator.Api.Models.Domain;
-using IncomeTaxCalculator.Api.Repositories.Interfaces;
-using IncomeTaxCalculator.Api.Services.Interfaces;
+﻿using IncomeTaxCalculator.Domain.Models.DbEntities;
+using IncomeTaxCalculator.Domain.Models.DomainModels;
+using IncomeTaxCalculator.Domain.Repositories.Interfaces;
+using IncomeTaxCalculator.Domain.Services.Interfaces;
+using Microsoft.Extensions.Logging;
 
-namespace IncomeTaxCalculator.Api.Services
+namespace IncomeTaxCalculator.Domain.Services
 {
     public class UnitedKingdomIncomeTaxCalculatorService : IIncomeTaxCalculatorService
     {

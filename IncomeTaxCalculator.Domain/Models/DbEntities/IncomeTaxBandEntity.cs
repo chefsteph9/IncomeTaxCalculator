@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace IncomeTaxCalculator.Api.Models.DbEntities
+namespace IncomeTaxCalculator.Domain.Models.DbEntities
 {
     [Table("IncomeTaxBand")]
     public class IncomeTaxBandEntity

@@ -1,6 +1,6 @@
-﻿using IncomeTaxCalculator.Api.Models.Domain;
+﻿using IncomeTaxCalculator.Domain.Models.DomainModels;
 
-namespace IncomeTaxCalculator.Api.Services.Interfaces
+namespace IncomeTaxCalculator.Domain.Services.Interfaces
 {
     public interface IIncomeTaxCalculatorService
     {
