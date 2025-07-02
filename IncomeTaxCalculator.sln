@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Models"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Domain", "IncomeTaxCalculator.Domain\IncomeTaxCalculator.Domain.csproj", "{5027321B-73A1-44C2-BA97-715F5ED89006}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTaxCalculator.Domain.Tests", "IncomeTaxCalculator.Domain.Tests\IncomeTaxCalculator.Domain.Tests.csproj", "{44A0127D-3804-453F-81E4-213AD75264E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{5027321B-73A1-44C2-BA97-715F5ED89006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5027321B-73A1-44C2-BA97-715F5ED89006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5027321B-73A1-44C2-BA97-715F5ED89006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A0127D-3804-453F-81E4-213AD75264E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A0127D-3804-453F-81E4-213AD75264E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A0127D-3804-453F-81E4-213AD75264E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A0127D-3804-453F-81E4-213AD75264E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

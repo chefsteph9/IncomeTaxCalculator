@@ -1,9 +1,10 @@
 ﻿using IncomeTaxCalculator.Domain.Models.DbEntities;
 using IncomeTaxCalculator.Models.DTOs;
+using System.Diagnostics.CodeAnalysis;
 
 namespace IncomeTaxCalculator.Domain.Models.DomainModels
 {
-    public class IncomeTaxBandDomainModel : IComparable<IncomeTaxBandDomainModel>
+    public class IncomeTaxBandDomainModel : IComparable<IncomeTaxBandDomainModel>, IEquatable<IncomeTaxBandDomainModel>
     {
         #region Properties
 
@@ -22,6 +23,17 @@ namespace IncomeTaxCalculator.Domain.Models.DomainModels
 
             return this.LowerBound < obj.LowerBound ? -1 : this.LowerBound == obj.LowerBound ? 0 : 1;
         }
+
+        public bool Equals(IncomeTaxBandDomainModel? other)
+        {
+            if (other == null)
+                return false;
+
+            return other.LowerBound == LowerBound && other.TaxRate == TaxRate;
+        }
+
+        public override bool Equals(object? obj) => Equals(obj as IncomeTaxBandDomainModel);
+        public override int GetHashCode() => HashCode.Combine(LowerBound, TaxRate);
 
         #endregion
 
