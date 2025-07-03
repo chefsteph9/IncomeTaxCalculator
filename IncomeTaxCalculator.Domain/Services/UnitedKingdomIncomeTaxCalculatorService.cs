@@ -31,7 +31,20 @@ namespace IncomeTaxCalculator.Domain.Services
         {
             var taxBands = await GetIncomeTaxBandsAsync(ct);
 
-            var totalTaxes = CalculateIncomeTax(annualIncome, taxBands.ToList());
+            double totalTaxes = 0;
+            long untaxedAnnualIncome = annualIncome;
+
+            taxBands = ValidateAndSortIncomeTaxBands(taxBands);
+            taxBands.Reverse();
+
+            foreach (var taxBand in taxBands)
+            {
+                if (untaxedAnnualIncome > taxBand.LowerBound)
+                {
+                    totalTaxes += ((untaxedAnnualIncome - taxBand.LowerBound) * (taxBand.TaxRate)) / 100.0;
+                    untaxedAnnualIncome = taxBand.LowerBound;
+                }
+            }
 
             return totalTaxes;
         }
@@ -47,33 +60,14 @@ namespace IncomeTaxCalculator.Domain.Services
 
         public async Task<int> UpdateIncomeTaxBandsAsync(List<IncomeTaxBandDomainModel> incomeTaxBandModels, CancellationToken ct)
         {
-            incomeTaxBandModels = ValidateIncomeTaxBands(incomeTaxBandModels);
+            incomeTaxBandModels = ValidateAndSortIncomeTaxBands(incomeTaxBandModels);
 
             var incomeTaxBandEntities = incomeTaxBandModels.ConvertAll(x => (IncomeTaxBandEntity)x);
 
             return await _taxBandRepository.UpdateIncomeTaxBands(incomeTaxBandEntities, ct);
         }
 
-        private double CalculateIncomeTax(long annualIncome, List<IncomeTaxBandDomainModel> incomeTaxBandModels)
-        {
-            double totalTaxes = 0;
-
-            incomeTaxBandModels = ValidateIncomeTaxBands(incomeTaxBandModels);
-            incomeTaxBandModels.Reverse();
-
-            foreach (var incomeTaxBandModel in incomeTaxBandModels)
-            {
-                if (annualIncome > incomeTaxBandModel.LowerBound)
-                {
-                    totalTaxes += ((annualIncome - incomeTaxBandModel.LowerBound) * (incomeTaxBandModel.TaxRate)) / 100.0;
-                    annualIncome = incomeTaxBandModel.LowerBound;
-                }
-            }
-
-            return totalTaxes;
-        }
-
-        private List<IncomeTaxBandDomainModel> ValidateIncomeTaxBands(List<IncomeTaxBandDomainModel> incomeTaxBandModels)
+        private List<IncomeTaxBandDomainModel> ValidateAndSortIncomeTaxBands(List<IncomeTaxBandDomainModel> incomeTaxBandModels)
         {
             incomeTaxBandModels = incomeTaxBandModels ?? new();
 
