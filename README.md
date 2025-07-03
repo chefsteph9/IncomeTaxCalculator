@@ -7,7 +7,7 @@ A simple income tax calculator using a MAUI front end and an ASP.NET Core Web AP
 * Add error handling
 * Add UI for editing tax bands (Swagger page on the API works for now)
 * Clean up UI
-* Add IncomeTaxBandInMemoryRepository to enable a user to test api without having a running SQL Server instance
+* <s>Add IncomeTaxBandInMemoryRepository to enable a user to test api without having a running SQL Server instance</s> Complete
 * Add authentication to PostTaxBands endpoint
 * Add documentation
 
