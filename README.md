@@ -28,3 +28,5 @@ To quickly run the calculator:
 * Take note of the URL for the API and put the base url in the appsettings file in the IncomeTaxCalculator.MAUI project. It will be in this format: https://localhost:{portNumber}/api/IncomeTaxCalculator/
 * Select IncomeTaxCalculator.MAUI as the startup project.
 * Run the MAUI project
+
+If you want to edit the tax bands, you can do so via the APIs swagger page. In the future I will add a UI to be able to modify the tax bands.
