@@ -37,6 +37,7 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 		<UserSecretsId>36dbea42-90c2-4f12-859e-5e2c159f1278</UserSecretsId>
+		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -14,10 +14,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#if DEBUG_INMEMORYREPOSITORY
+
+builder.Services.AddSingleton<IIncomeTaxBandRepository, IncomeTaxBandInMemoryRepository>();
+
+#else
+
 string connectionString = builder.Configuration.GetConnectionString("IncomeTaxBandsDb");
 builder.Services.AddDbContextPool<IncomeTaxBandSqlServerDbContext>(options => options.UseSqlServer(connectionString));
-
 builder.Services.AddScoped<IIncomeTaxBandRepository, IncomeTaxBandSqlServerRepository>();
+
+#endif
+
 builder.Services.AddScoped<IIncomeTaxCalculatorService, UnitedKingdomIncomeTaxCalculatorService>();
 
 var app = builder.Build();
