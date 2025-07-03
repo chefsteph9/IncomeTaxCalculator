@@ -30,3 +30,17 @@ To quickly run the calculator:
 * Run the MAUI project
 
 If you want to edit the tax bands, you can do so via the APIs swagger page. In the future I will add a UI to be able to modify the tax bands.
+
+### Libraries Used
+* IncomeTaxCalculator.Domain
+  * Microsoft.EntityFrameworkCore
+  * Microsoft.EntityFrameworkCore.SqlServer
+* IncomeTaxCalculator.Domain.Tests
+  * NUnit
+  * Moq
+* IncomeTaxCalculator.MAUI
+  * CommunityToolkit.Mvvm (Handles a lot of viewmodel boilerplate code)
+  * Microsoft.Extensions.ConfigurationsBinder
+  * Microsoft.Extensions.Configuration.Json (This and above package allow using an appsetting.json file)
+  * RestSharp (To connect to API)
+  * Microsoft.Extensions.Configuration.UserSecrets (To manage user secrets)
